@@ -1,0 +1,31 @@
+classDiagram
+    class platform{
+        +place_order(user:user, restaurant: restaurant, items:list) : order
+        +update_order_status(order:order, status: orderStatus)
+    }
+    class user{
+        +name: str
+        +email: str
+        +notify(massage: str)
+    }
+    class order{
+        +status: orderStatus
+        +add_item(item:menuitem)
+        +confirm()
+        +update_status
+    }
+    class restaurant{
+        +name: str
+        +get_menu(): list
+    }
+    class orderStatus{
+        created
+        confirmed
+        prepared
+        delivered
+    }
+    class menuitem{
+        +name: str
+        +price: float
+    }
+    
