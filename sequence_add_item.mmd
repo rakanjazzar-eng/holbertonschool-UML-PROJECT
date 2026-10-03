@@ -1,0 +1,8 @@
+sequenceDiagram
+    actor User
+    participant Restaurant
+    participant Order
+
+    User->>Restaurant: getMenu()
+    Restaurant-->>User: menu
+    User->>Order: addItem(item)

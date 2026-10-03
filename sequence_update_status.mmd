@@ -1,0 +1,8 @@
+sequenceDiagram
+    participant Platform
+    participant Order
+    actor User
+
+    Platform->>Order: updateStatus(status)
+    Order-->>Platform: status updated
+    Platform->>User: notify(message)

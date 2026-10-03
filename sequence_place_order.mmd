@@ -1,0 +1,13 @@
+sequenceDiagram
+    actor User
+    participant Platform
+    participant Order
+    participant Restaurant
+
+    User->>Platform: createOrder(user, restaurant)
+    Platform-->>User: order
+    User->>Platform: placeOrder(order)
+    Platform->>Order: confirm()
+    Platform->>Restaurant: confirmOrder(order)
+    Platform->>User: notify(message)
+
