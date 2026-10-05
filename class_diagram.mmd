@@ -39,12 +39,14 @@ classDiagram
         +updateOrderStatus(order, status)
     }
 
-    User "1" --> "0..*" Order : places
-    Restaurant "1" --> "0..*" Order : receives
-    Restaurant "1" --> "1..*" MenuItem : offers
-    Order "0..*" --> "1..*" MenuItem : contains
-    Order "1" --> "1" OrderStatus : has
+    User "1" -- "0..*" Order : places
+    Restaurant "1" -- "0..*" Order : receives
+    Restaurant "1" -- "1..*" MenuItem : offers
+    Order "0..*" -- "1..*" MenuItem : contains
+    Order "1" -- "1" OrderStatus : has
 
-    Platform ..> User : manages
-    Platform ..> Restaurant : manages
-    Platform ..> Order : manages
+    Platform ..> User : uses
+    Platform ..> Restaurant : uses
+    Platform ..> Order : uses
+
+    note "Solid line = association (classes linked to each other)<br/>Dashed arrow = dependency (one class uses another)"

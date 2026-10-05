@@ -8,6 +8,12 @@ sequenceDiagram
     Platform-->>User: order
     User->>Platform: placeOrder(order)
     Platform->>Order: confirm()
-    Platform->>Restaurant: confirmOrder(order)
-    Platform->>User: notify(message)
 
+    alt order has items
+        Order-->>Platform: confirmed
+        Platform->>Restaurant: confirmOrder(order)
+        Platform->>User: notify(message)
+    else order is empty
+        Order-->>Platform: rejected
+        Platform->>User: notify(message)
+    end

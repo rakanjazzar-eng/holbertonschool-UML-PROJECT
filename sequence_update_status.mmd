@@ -4,5 +4,10 @@ sequenceDiagram
     actor User
 
     Platform->>Order: updateStatus(status)
-    Order-->>Platform: status updated
-    Platform->>User: notify(message)
+
+    alt status is a valid OrderStatus
+        Order-->>Platform: status updated
+        Platform->>User: notify(message)
+    else status is not valid
+        Order-->>Platform: rejected
+    end

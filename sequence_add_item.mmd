@@ -6,3 +6,9 @@ sequenceDiagram
     User->>Restaurant: getMenu()
     Restaurant-->>User: menu
     User->>Order: addItem(item)
+
+    alt order status is CREATED
+        Order-->>User: item added
+    else order is already confirmed
+        Order-->>User: item rejected
+    end
